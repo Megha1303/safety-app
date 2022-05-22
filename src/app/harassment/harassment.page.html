@@ -1,24 +1,47 @@
 <ion-header>
-  <ion-toolbar color="danger">
+  <ion-toolbar color="tertiary">
     <ion-title>Physical Harassment Section</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <div #map id="map"></div>
+  <div class="ion-padding">
+    <ion-button (click)="getCurrentCoordinates()" expand="block" color="tertiary">
+      Get Location
+    </ion-button>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Location Coordinates</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        Latitue
+      </ion-label>
+      <ion-badge color="danger" slot="end">{{latitude}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Longitude
+      </ion-label>
+      <ion-badge color="danger" slot="end">{{longitude}}</ion-badge>
+    </ion-item>
+    </ion-list>    
+  </div>
 
   <div class="Camera">
-    <img src="{{imgURL}}" height ="200" width="200" />
-
-    <ion-button (click) = "getCamera()">From Camera</ion-button>
-    <ion-button (click) = "getGallery()">From Gallery</ion-button>
+    <img src="{{imgURL}}" height ="200" width="200" /><br>
+    <ion-button (click) = "getCamera()" color="tertiary">From Camera</ion-button><br>
+    <ion-button (click) = "getGallery()" color="tertiary">From Gallery</ion-button>
   </div>
 
   <div class="action-button">
-    <ion-button expand="block">
+    <ion-button expand="block" color="tertiary">
       Send live location to trusted contacts
     </ion-button>
-    <ion-button expand="block">
-      send alert
+    
+    <ion-button expand="block" (click)="sendAlert()" color="tertiary">
+      Send Alert
     </ion-button>
   </div>
 
